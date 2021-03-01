@@ -1,6 +1,7 @@
 <template>
 <h2>Country Info Component</h2>
 <div v-if="item">
+    <img :src="item.flag" alt="">
 <div>Name: {{ name }}</div>
 <div>Population: {{ item.population }}</div>
 <div>Region: {{ item.region }}</div>
@@ -21,7 +22,7 @@
 </div>
 <div>Border Countries: 
     <ul>
-        <li v-for="border in item.borders" :key="border">{{border}}</li>
+        <li v-for="border in borders" :key="border">{{border}}</li>
     </ul>
 </div>
 </template>
@@ -42,6 +43,7 @@ axios({
 })
   .then((response) => {
     this.item = response.data.[0];
+    this.borders = response.data.[0].borders;
   })
   .catch((err) => console.log(err));
 },

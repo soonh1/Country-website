@@ -1,10 +1,12 @@
 <template>
+
   <h1>Country Page</h1>
-  <country-info :name="itemname"></country-info>
+  <router-link to="/">Back</router-link>
+  <CountryInfo :name="itemname"/>
 </template>
 
 <script>
-import CountryInfo from "@/components/CountryInfo.vue";
+import CountryInfo from "../components/CountryInfo.vue";
 export default {
   components: { CountryInfo },
   data() {
