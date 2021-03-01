@@ -1,8 +1,14 @@
 <template>
   <div>
     <h1>Country List</h1>
+    
     <ul>
-      <li v-for="item in countries" :key="item.name">{{ item.name }} 
+      <li v-for="item in countries" :key="item.name">
+        <img :src="item.flag" alt="">
+        <p>{{ item.name }}</p>
+        <p>Population: {{item.population}}</p>
+        <p>Region: {{item.region}}</p>
+        <p>Capital: {{item.capital}}</p>
           <router-link :to="`/Details/${item.name}`">View details</router-link> 
       </li>
     </ul>
@@ -20,7 +26,7 @@ export default {
   },
   created() {
     axios
-      .get("https://restcountries.eu/rest/v2/all?fields=name;population;region;capital;nativeName;subregion;topLevelDomain;currencies;languages;borders")
+      .get("https://restcountries.eu/rest/v2/all?fields=name;population;region;capital;flag")
       .then(response => {
         this.countries = response.data;
       })
