@@ -1,6 +1,6 @@
 <template>
   <h1>Country Page</h1>
-  <CountryInfo :name="itemname"></CountryInfo>
+  <country-info :name="itemname"></country-info>
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
     };
   },
   created() {
-    this.itemname = this.$route.params.id;
+    this.itemname = this.$route.params.name;
   },
 };
 </script>

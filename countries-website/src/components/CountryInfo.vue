@@ -1,7 +1,8 @@
 <template>
 <h2>Country Info Component</h2>
 <div v-if="item">
-<div>Name: {{ item.name }}</div>
+<div>Name: {{ name }}</div>
+<div>Population: {{ item.population }}</div>
 </div>
 </template>
 
