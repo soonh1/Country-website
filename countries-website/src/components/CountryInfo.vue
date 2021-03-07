@@ -1,30 +1,37 @@
 <template>
-<h2>Country Info Component</h2>
-<div v-if="item">
-    <img :src="item.flag" alt="">
-<div>Name: {{ name }}</div>
-<div>Population: {{ item.population }}</div>
-<div>Region: {{ item.region }}</div>
-<div>Capital: {{ item.capital }}</div>
-<div>Native Name: {{ item.nativeName }}</div>
-<div>Subregion: {{ item.subregion }}</div>
-<div>Top level domain: {{ item.topLevelDomain.[0] }}</div>
-<div>Languages: 
-    <ul>
-        <li v-for="language in item.languages" :key="language">{{language.name}}</li>
-    </ul>
-</div>
-<div>Currencies: 
-    <ul>
-        <li v-for="currency in item.currencies" :key="currency">{{currency.name}}</li>
-    </ul>
+  <h2>Country Info Component</h2>
+  <div v-if="item">
+    <img :src="item.flag" alt="" />
+    <div>Name: {{ name }}</div>
+    <div>Population: {{ item.population }}</div>
+    <div>Region: {{ item.region }}</div>
+    <div>Capital: {{ item.capital }}</div>
+    <div>Native Name: {{ item.nativeName }}</div>
+    <div>Subregion: {{ item.subregion }}</div>
+    <div>Top level domain: {{ item.topLevelDomain.[0] }}</div>
+    <div>
+      Languages:
+      <ul>
+        <li v-for="language in item.languages" :key="language">
+          {{ language.name }}
+        </li>
+      </ul>
     </div>
-</div>
-<div>Border Countries: 
+    <div>
+      Currencies:
+      <ul>
+        <li v-for="currency in item.currencies" :key="currency">
+          {{ currency.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    Border Countries:
     <ul>
-        <li v-for="border in borders" :key="border">{{border}}</li>
+      <li v-for="border in borders" :key="border">{{ border }}</li>
     </ul>
-</div>
+  </div>
 </template>
 
 <script>
