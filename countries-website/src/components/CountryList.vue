@@ -61,7 +61,7 @@ export default {
 <style scoped lang="scss">
 .wrapper {
   display: grid;
-  grid-template-columns: repeat( auto-fill, minmax(500px, 1fr) );
+  grid-template-columns: repeat( auto-fill, minmax(450px, 1fr) );
 }
 
 .holder {
