@@ -64,6 +64,10 @@ export default {
   grid-template-columns: repeat( auto-fill, minmax(450px, 1fr) );
 }
 
+ul {
+  list-style: none;
+}
+
 .holder {
   display: inline;
 }
