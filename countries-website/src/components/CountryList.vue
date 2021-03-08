@@ -12,9 +12,11 @@
       <option value="Oceania">Oceania</option>
     </select>
     <!-- filterCountriesBycCategory -->
-    <ul>
+    <ul class="wrapper">
       <li v-for="item in filterCountriesBycCategory" :key="item.name">
-        <img :src="item.flag" alt="" />
+        <div class="holder">
+        <img class="imgsize" :src="item.flag" alt="" />
+        </div>
         <p style="font-weight:bold;">{{ item.name }}</p>
         <p>Population: {{ item.population }}</p>
         <p>Region: {{ item.region }}</p>
@@ -22,18 +24,6 @@
         <router-link :to="`/Details/${item.name}`">View details</router-link>
       </li>
     </ul>
-    <ul class="wrapper">
-      <li v-for="item in countries" :key="item.name">
-        <div class="holder">
-        <img class="imgsize" :src="item.flag" alt="" />
-        </div>
-        <p>{{ item.name }}</p>
-        <p>Population: {{ item.population }}</p>
-        <p>Region: {{ item.region }}</p>
-        <p>Capital: {{ item.capital }}</p>
-        <router-link :to="`/Details/${item.name}`">View details</router-link>
-      </li>
-    </ul> -->
   </div>
 </template>
 
