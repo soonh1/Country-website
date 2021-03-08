@@ -69,7 +69,8 @@ export default {
 }
 
 .imgsize{
-  max-width: 80%;
-  height: auto;
+  width: 450px;
+  height: 300px;
+  object-fit: cover;
 }
 </style>
