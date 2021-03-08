@@ -14,9 +14,11 @@
         }})
       </li>
     </ul>
-    <ul>
+    <ul class="wrapper">
       <li v-for="item in countries" :key="item.name">
-        <img :src="item.flag" alt="" />
+        <div class="holder">
+        <img class="imgsize" :src="item.flag" alt="" />
+        </div>
         <p>{{ item.name }}</p>
         <p>Population: {{ item.population }}</p>
         <p>Region: {{ item.region }}</p>
@@ -69,3 +71,19 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat( auto-fill, minmax(500px, 1fr) );
+}
+
+.holder {
+  display: inline;
+}
+
+.imgsize{
+  max-width: 80%;
+  height: auto;
+}
+</style>
