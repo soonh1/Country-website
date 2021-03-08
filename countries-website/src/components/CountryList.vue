@@ -42,7 +42,7 @@ export default {
   computed: {
     filterCountriesBycCategory: function() {
       return this.countries.filter(
-        (item) => !item.region.indexOf(this.countriesCategory) && !item.name.indexOf(this.name)
+        (item) => !item.region.indexOf(this.countriesCategory) && !item.name.toLowerCase().indexOf(this.name.toLowerCase())
       );
     },
   },
