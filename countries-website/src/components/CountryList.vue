@@ -14,6 +14,7 @@
     <!-- filter countries by name and category -->
     <ul class="wrapper">
       <li v-for="item in filterCountriesBycCategory" :key="item.name">
+        <router-link :to="`/Details/${item.name}`">
         <div class="holder">
         <img class="imgsize" :src="item.flag" alt="" />
         </div>
@@ -21,7 +22,7 @@
         <p>Population: {{ item.population }}</p>
         <p>Region: {{ item.region }}</p>
         <p>Capital: {{ item.capital }}</p>
-        <router-link :to="`/Details/${item.name}`">View details</router-link>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -62,7 +63,21 @@ export default {
 <style scoped lang="scss">
 .wrapper {
   display: grid;
-  grid-template-columns: repeat( auto-fill, minmax(450px, 1fr) );
+  grid-template-columns: repeat( auto-fit, minmax(350px, 1fr) );
+}
+
+li {
+  margin: 25px;
+  background-color: deeppink;
+  
+  p {
+    color: white;
+    text-decoration: none;
+  }
+  a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
 }
 
 ul {
@@ -74,8 +89,8 @@ ul {
 }
 
 .imgsize{
-  width: 450px;
-  height: 300px;
+  width: 100%;
+  height: 180px;
   object-fit: cover;
 }
 </style>
