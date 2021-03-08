@@ -2,7 +2,7 @@
   <div>
     <h1>Country List</h1>
     <h3>Filter By Category</h3>
-    <input type="text" v-model="name" placeholder="Filter By Name"/>
+    <input type="text" v-model="name" placeholder="Filter By Name" />
     <select v-model="countriesCategory">
       <option value="">All</option>
       <option value="Africa">Africa</option>
@@ -11,7 +11,7 @@
       <option value="Europe">Europe</option>
       <option value="Oceania">Oceania</option>
     </select>
-    <!-- filterCountriesBycCategory -->
+    <!-- filter countries by name and category -->
     <ul class="wrapper">
       <li v-for="item in filterCountriesBycCategory" :key="item.name">
         <div class="holder">
@@ -35,12 +35,13 @@ export default {
     return {
       countries: [],
       countriesCategory: "",
+      name: "",
     };
   },
   computed: {
     filterCountriesBycCategory: function() {
       return this.countries.filter(
-        (item) => !item.region.indexOf(this.countriesCategory)
+        (item) => !item.region.indexOf(this.countriesCategory) && !item.name.indexOf(this.name)
       );
     },
   },
