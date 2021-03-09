@@ -3,7 +3,7 @@
     <div>
       <ul>
         <li><a href="">Where in the world?</a></li>
-        <li><button>Dark Mode</button><a href=""></a></li>
+        <li><button id="switch" onclick="toggleTheme()">Dark Mode</button><a href=""></a></li>
       </ul>
     </div>
   </header>
