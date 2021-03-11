@@ -1,14 +1,12 @@
 <template>
 <div class="app" :class="mode">
   <Header :mode="mode" @toggle="toggle"></Header>
-  <CountryList :mode="mode"></CountryList>
-  <!-- <router-view /> -->
+  <router-view />
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header.vue";
-import CountryList from '@/components/CountryList.vue';
 export default {
   data() {
     return {
@@ -17,7 +15,6 @@ export default {
   },
   components: {
     Header,
-    CountryList
   },
   methods: {
     toggle () {
@@ -41,7 +38,8 @@ export default {
 
 
 .app {
-  color: #15202B;
+  background-color: hsl(0, 0%, 85%);
+  color: hsl(200, 15%, 8%);
   transition: background 0.3 ease-in-out;
   width: 100vw;
   min-height: 100vh;
@@ -50,7 +48,8 @@ export default {
 
 .dark {
   background-color: #192734;
-  color: #f3f3f3;
+  color: hsl(0, 0%, 100%);
+
 }
 
 .theme-light {

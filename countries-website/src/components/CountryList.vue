@@ -69,10 +69,10 @@ export default {
 
 li {
   margin: 25px;
-  background-color: deeppink;
+  background-color:hsl(0, 0%, 100%);
   
   p {
-
+    color: hsl(200, 15%, 8%);
     text-decoration: none;
   }
   a:hover, a:visited, a:link, a:active
@@ -97,7 +97,10 @@ ul {
 
 .dark {
   p {
-    color: red;
+    color: hsl(0, 0%, 100%);
+  }
+  li {
+    background-color: hsl(209, 23%, 22%);
   }
 }
 </style>
