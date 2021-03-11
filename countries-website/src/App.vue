@@ -1,32 +1,31 @@
 <template>
-<div :class="theme">
-  <Header></Header>
-<button id="switch" @click="triggy()">Dark Mode</button>
+<div class="app" :class="mode">
+  <Header :mode="mode" @toggle="toggle"></Header>
+  <CountryList :mode="mode" @toggle="toggle"></CountryList>
   <router-view />
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header.vue";
+import CountryList from './components/CountryList.vue';
 export default {
+  name: 'app',
   data() {
     return {
-      theme: "theme-light"
+      mode: 'light'
     }
   },
   components: {
     Header,
+    CountryList
   },
-  methods:{
-    triggy() {
-      switch (this.theme) {
-        case 'theme-light':
-          this.theme = 'theme-dark';
-          break;
-        case 'theme-dark':
-          this.theme = 'theme-light';
-          break;
-        default:
+  methods: {
+    toggle () {
+      if (this.mode === "dark") {
+        this.mode = "light"
+      } else {
+        this.mode = "dark"
       }
     }
   }
@@ -34,9 +33,24 @@ export default {
 </script>
 
 <style lang="scss">
-body {
+* {
   margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
+
+.app {
+  background: #f3f3f3;
+  color: #15202B;
+  transition: background 0.3 ease-in-out;
+}
+
+.dark {
+  background-color: #192734;
+  color: #f3f3f3
+}
+
+
 :root {
   background-color: var(--color-primary);
    color: var(--font-color);

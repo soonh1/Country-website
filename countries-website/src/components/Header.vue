@@ -1,48 +1,50 @@
 <template>
-  <header>
-    <div>
-      <ul>
-        <li><a href="">Where in the world?</a></li>
-        <li><button id="switch" onclick="toggleTheme()">Dark Mode</button><a href=""></a></li>
-      </ul>
-    </div>
-  </header>
+    <header>
+        <h1> Where In The World?</h1>
+        <nav>
+            <Toggle :mode="mode" @toggle="$emit('toggle')"/>
+        </nav>
+    </header>
 </template>
+
 <script>
-export default {};
+import Toggle from '@/components/Toggle'
+export default {
+    props: ['mode'],
+    components: {
+        Toggle
+    }
+}
+
 </script>
-<style scoped lang="scss">
+
+<style scoped>
+
+.dark header {
+    background: #15202B;
+}
+
 header {
-  box-shadow: 1px 1px 10px #888888;
-  height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    height: 60px;
+    background: #C3C3C3;
+    transition: background 0.3 ease-in-out;
 }
 
-ul {
-  display: flex;
-  margin: 0;
-
-    li {
-      margin-top: 20px;
-      margin-right: 30px;
-      padding: 20px;
-      list-style-type: none;
-
-      button {
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-      }
-  }
-
-
-    li:nth-child(2) {
-    margin-left: auto;
-  }
-  
-  
+header h1 {
+    font-size: 24px;
+    font-weight: 900;
 }
 
+header nav {
+    display: flex;
+}
 
-
-
+header nav .nav-link {
+    align-items: center;
+    padding: 0px 15px;
+}
 </style>

@@ -32,6 +32,7 @@
 import axios from "axios";
 
 export default {
+  props: ['mode'],
   data() {
     return {
       countries: [],
@@ -71,7 +72,7 @@ li {
   background-color: deeppink;
   
   p {
-    color: white;
+
     text-decoration: none;
   }
   a:hover, a:visited, a:link, a:active
