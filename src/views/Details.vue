@@ -2,7 +2,7 @@
   <router-link to="/">
     <button class="backbutton">
       <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
-      <p>Back123</p>
+      <p>Back</p>
     </button>
 </router-link>
   <CountryInfo :name="itemname" />
