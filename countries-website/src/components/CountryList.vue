@@ -1,14 +1,17 @@
 <template>
   <div>
-    <input type="text" v-model="name" placeholder="Filter By Name" />
-    <select v-model="countriesCategory">
-      <option value="">All</option>
-      <option value="Africa">Africa</option>
-      <option value="America">America</option>
-      <option value="Asia">Asia</option>
-      <option value="Europe">Europe</option>
-      <option value="Oceania">Oceania</option>
-    </select>
+    <div class="filter">
+      <input type="text" v-model="name" placeholder="Search for a country.." />
+      <select v-model="countriesCategory">
+        <option value="" disabled selected hidden>Filter by Region</option>
+        <option value="">All</option>
+        <option value="Africa">Africa</option>
+        <option value="America">America</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Oceania">Oceania</option>
+      </select>
+    </div>
     <!-- filter countries by name and category -->
     <ul class="wrapper">
       <li v-for="item in filterCountriesBycCategory" :key="item.name">
@@ -64,6 +67,30 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.filter{
+  display: flex;
+  justify-content: space-between;
+  margin: 25px 25px 0 25px;
+  input{
+    padding: 15px;
+    width: 25rem;
+    border-radius: 5px;
+    border-style: none;
+    &:focus{
+      outline: none;
+    }
+  }
+  select{
+    padding: 15px;
+    width: 10rem;
+    border-radius: 5px;
+    border-style: none;
+    &:focus{
+      outline: none;
+    }
+  }
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
