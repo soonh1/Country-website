@@ -30,7 +30,7 @@ header {
     align-items: center;
     padding: 0 25px;
     height: 60px;
-    background: #C3C3C3;
+    background: hsl(0, 0%, 100%);
     transition: background 0.3 ease-in-out;
 }
 

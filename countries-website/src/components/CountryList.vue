@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h1>Country List</h1>
-    <h3>Filter By Category</h3>
     <input type="text" v-model="name" placeholder="Filter By Name" />
     <select v-model="countriesCategory">
       <option value="">All</option>
@@ -18,10 +16,12 @@
         <div class="holder">
         <img class="imgsize" :src="item.flag" alt="" />
         </div>
+        <div class="text">
         <p style="font-weight:bold;">{{ item.name }}</p>
         <p>Population: {{ item.population }}</p>
         <p>Region: {{ item.region }}</p>
         <p>Capital: {{ item.capital }}</p>
+        </div>
         </router-link>
       </li>
     </ul>
@@ -70,15 +70,23 @@ export default {
 li {
   margin: 25px;
   background-color:hsl(0, 0%, 100%);
+  border-radius: 5px;
   
   p {
     color: hsl(200, 15%, 8%);
     text-decoration: none;
+    line-height: 2rem;
+    text-align: left;
   }
   a:hover, a:visited, a:link, a:active
 {
     text-decoration: none;
 }
+}
+
+.text {
+  padding: 25px;
+
 }
 
 ul {
@@ -93,6 +101,8 @@ ul {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .dark {

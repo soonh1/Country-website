@@ -1,6 +1,5 @@
 <template>
 
-  <h1>Country Page</h1>
   <router-link to="/">Back</router-link>
   <CountryInfo :name="itemname"/>
 </template>

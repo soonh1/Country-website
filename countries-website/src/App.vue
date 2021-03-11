@@ -38,7 +38,7 @@ export default {
 
 
 .app {
-  background-color: hsl(0, 0%, 85%);
+  background-color: hsl(0, 0%, 97%);
   color: hsl(200, 15%, 8%);
   transition: background 0.3 ease-in-out;
   width: 100vw;

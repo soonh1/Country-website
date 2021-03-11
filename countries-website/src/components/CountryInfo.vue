@@ -1,5 +1,4 @@
 <template>
-  <h2>Country Info Component</h2>
   <div v-if="item">
     <img :src="item.flag" alt="" />
     <div>Name: {{ name }}</div>
