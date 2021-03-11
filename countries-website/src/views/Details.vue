@@ -4,7 +4,7 @@
       <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
       <p>Back</p>
     </button>
-  </router-link>
+</router-link>
   <CountryInfo :name="itemname" />
 </template>
 
