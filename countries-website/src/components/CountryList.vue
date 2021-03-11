@@ -13,15 +13,15 @@
     <ul class="wrapper">
       <li v-for="item in filterCountriesBycCategory" :key="item.name">
         <router-link :to="`/Details/${item.name}`">
-        <div class="holder">
-        <img class="imgsize" :src="item.flag" alt="" />
-        </div>
-        <div class="text">
-        <p style="font-weight:bold;">{{ item.name }}</p>
-        <p>Population: {{ item.population }}</p>
-        <p>Region: {{ item.region }}</p>
-        <p>Capital: {{ item.capital }}</p>
-        </div>
+          <div class="holder">
+            <img class="imgsize" :src="item.flag" alt="" />
+          </div>
+          <div class="text">
+            <p style="font-weight:bold;">{{ item.name }}</p>
+            <p>Population: {{ item.population }}</p>
+            <p>Region: {{ item.region }}</p>
+            <p>Capital: {{ item.capital }}</p>
+          </div>
         </router-link>
       </li>
     </ul>
@@ -32,7 +32,7 @@
 import axios from "axios";
 
 export default {
-  props: ['mode'],
+  props: ["mode"],
   data() {
     return {
       countries: [],
@@ -43,7 +43,9 @@ export default {
   computed: {
     filterCountriesBycCategory: function() {
       return this.countries.filter(
-        (item) => !item.region.indexOf(this.countriesCategory) && !item.name.toLowerCase().indexOf(this.name.toLowerCase())
+        (item) =>
+          !item.region.indexOf(this.countriesCategory) &&
+          !item.name.toLowerCase().indexOf(this.name.toLowerCase())
       );
     },
   },
@@ -64,29 +66,30 @@ export default {
 <style scoped lang="scss">
 .wrapper {
   display: grid;
-  grid-template-columns: repeat( auto-fill, minmax(350px, 1fr) );
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
 li {
   margin: 25px;
-  background-color:hsl(0, 0%, 100%);
+  background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
-  
+  transition: background 0.3s ease-in-out;
   p {
     color: hsl(200, 15%, 8%);
     text-decoration: none;
     line-height: 2rem;
     text-align: left;
   }
-  a:hover, a:visited, a:link, a:active
-{
+  a:hover,
+  a:visited,
+  a:link,
+  a:active {
     text-decoration: none;
-}
+  }
 }
 
 .text {
   padding: 25px;
-
 }
 
 ul {
@@ -97,7 +100,7 @@ ul {
   display: inline;
 }
 
-.imgsize{
+.imgsize {
   width: 100%;
   height: 180px;
   object-fit: cover;
