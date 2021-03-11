@@ -94,4 +94,10 @@ ul {
   height: 180px;
   object-fit: cover;
 }
+
+.dark {
+  p {
+    color: red;
+  }
+}
 </style>

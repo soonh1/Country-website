@@ -1,16 +1,15 @@
 <template>
 <div class="app" :class="mode">
   <Header :mode="mode" @toggle="toggle"></Header>
-  <CountryList :mode="mode" @toggle="toggle"></CountryList>
-  <router-view />
+  <CountryList :mode="mode"></CountryList>
+  <!-- <router-view /> -->
   </div>
 </template>
 
 <script>
 import Header from "@/components/Header.vue";
-import CountryList from './components/CountryList.vue';
+import CountryList from '@/components/CountryList.vue';
 export default {
-  name: 'app',
   data() {
     return {
       mode: 'light'
@@ -39,21 +38,19 @@ export default {
   font-family: 'Roboto', sans-serif;
 }
 
+
+
 .app {
-  background: #f3f3f3;
   color: #15202B;
   transition: background 0.3 ease-in-out;
+  width: 100vw;
+  min-height: 100vh;
 }
+
 
 .dark {
   background-color: #192734;
-  color: #f3f3f3
-}
-
-
-:root {
-  background-color: var(--color-primary);
-   color: var(--font-color);
+  color: #f3f3f3;
 }
 
 .theme-light {
