@@ -19,7 +19,7 @@
       </li>
     </ul>
     
-    
+    -->
     <div class="filter">
       <input type="text" v-model="name" placeholder="Search for a country.." />
       <select v-model="countriesCategory">
@@ -32,7 +32,7 @@
         <option value="Oceania">Oceania</option>
       </select>
     </div>
-    -->
+
     <!-- filter countries by name and category -->
     <ul class="wrapper">
       <li v-for="item in filterCountriesBycCategory" :key="item.name">
