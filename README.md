@@ -1,5 +1,7 @@
 # countries-website
 
+## Live demo https://stunning-hamster-c19f07.netlify.app/
+
 ## Project setup
 ```
 npm install
