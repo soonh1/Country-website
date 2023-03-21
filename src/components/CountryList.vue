@@ -1,5 +1,25 @@
 <template>
   <div>
+    <!-- testing 
+    <p>{{ countriesCategory }}</p>
+    <input type="text" v-model="username" placeholder="Search for a robot" />
+    <ul class="wrapper">
+      <li v-for="item in test" :key="item.username">
+        <router-link :to="`/Details/${item.username}`">
+          <div class="holder">
+            <img class="imgsize" :src="item.avatar" alt="" />
+          </div>
+          <div class="text">
+            <p style="font-weight:bold;">{{ item.first_name }}</p>
+            <p>Gender: {{ item.gender }}</p>
+            <p>Job: {{ item.employment.title }}</p>
+            <p>Email: {{ item.email }}</p>
+          </div>
+        </router-link>
+      </li>
+    </ul>
+    
+    
     <div class="filter">
       <input type="text" v-model="name" placeholder="Search for a country.." />
       <select v-model="countriesCategory">
@@ -12,6 +32,7 @@
         <option value="Oceania">Oceania</option>
       </select>
     </div>
+    -->
     <!-- filter countries by name and category -->
     <ul class="wrapper">
       <li v-for="item in filterCountriesBycCategory" :key="item.name">
@@ -39,8 +60,10 @@ export default {
   data() {
     return {
       countries: [],
+      RandomUser: [],
       countriesCategory: "",
       name: "",
+      username: "",
     };
   },
   computed: {
@@ -51,15 +74,26 @@ export default {
           !item.name.toLowerCase().indexOf(this.name.toLowerCase())
       );
     },
+    test: function() {
+      return this.RandomUser.filter(
+        (item) => !item.username.indexOf(this.username)
+      );
+    },
   },
 
   created() {
     axios
       .get(
-        "https://restcountries.eu/rest/v2/all?fields=name;population;region;capital;flag"
+        "https://restcountries.com/v2/all?fields=name,population,region,capital,flag"
       )
       .then((response) => {
         this.countries = response.data;
+      })
+      .catch((err) => console.log(err));
+    axios
+      .get("https://random-data-api.com/api/users/random_user?size=30")
+      .then((response) => {
+        this.RandomUser = response.data;
       })
       .catch((err) => console.log(err));
   },
@@ -67,25 +101,25 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.filter{
+.filter {
   display: flex;
   justify-content: space-between;
   margin: 25px 25px 0 25px;
-  input{
+  input {
     padding: 15px;
     width: 25rem;
     border-radius: 5px;
     border-style: none;
-    &:focus{
+    &:focus {
       outline: none;
     }
   }
-  select{
+  select {
     padding: 15px;
     width: 10rem;
     border-radius: 5px;
     border-style: none;
-    &:focus{
+    &:focus {
       outline: none;
     }
   }

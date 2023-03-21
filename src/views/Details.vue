@@ -4,7 +4,7 @@
       <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
       <p>Back</p>
     </button>
-</router-link>
+  </router-link>
   <CountryInfo :name="itemname" />
 </template>
 
@@ -24,7 +24,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 a {
   text-decoration: none;
 }
@@ -44,11 +44,11 @@ a {
   &:focus {
     outline: none;
   }
-  i{
+  i {
     margin: auto;
     font-size: 16px;
   }
-  p{
+  p {
     margin-left: 8px;
     font-size: 15px;
   }

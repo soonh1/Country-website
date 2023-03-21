@@ -2,44 +2,57 @@
   <div class="container" v-if="item">
     <img class="img" :src="item.flag" alt="" />
 
-      <div class="wrapper">
-        <div class="countryname">{{ name }}</div>
-        <div class="text-flex">
+    <div class="wrapper">
+      <div class="countryname">{{ name }}</div>
+      <div class="text-flex">
         <div class="text1">
-        <div><p><b>Population:</b> {{ item.population }}</p></div>
-        <div><p><b>Region:</b> {{ item.region }}</p></div>
-        <div><p><b>Capital:</b> {{ item.capital }}</p></div>
-        <div><p><b>Native Name:</b> {{ item.nativeName }}</p></div>
-        <div><p><b>Subregion:</b> {{ item.subregion }}</p></div>
+          <div>
+            <p><b>Population:</b> {{ item.population }}</p>
+          </div>
+          <div>
+            <p><b>Region:</b> {{ item.region }}</p>
+          </div>
+          <div>
+            <p><b>Capital:</b> {{ item.capital }}</p>
+          </div>
+          <div>
+            <p><b>Native Name:</b> {{ item.nativeName }}</p>
+          </div>
+          <div>
+            <p><b>Subregion:</b> {{ item.subregion }}</p>
+          </div>
         </div>
         <div class="text2">
-        <div><p><b>Top level domain:</b> {{ item.topLevelDomain.[0] }}</p></div>
-        <div>
-          <b>Languages:</b>
-          <ul>
-            <li v-for="language in item.languages" :key="language">
-              {{ language.name }}
-            </li>
-          </ul>
+          <div>
+            <p><b>Top level domain:</b> {{ item.topLevelDomain.[0] }}</p>
+          </div>
+          <div>
+            <b>Languages:</b>
+            <ul>
+              <li v-for="language in item.languages" :key="language">
+                {{ language.name }}
+              </li>
+            </ul>
+          </div>
+          <div>
+            <b>Currencies:</b>
+            <ul>
+              <li v-for="currency in item.currencies" :key="currency">
+                {{ currency.name }}
+              </li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <b>Currencies:</b>
-          <ul>
-            <li v-for="currency in item.currencies" :key="currency">
-              {{ currency.name }}
-            </li>
-          </ul>
-        </div>
-        </div>
-         </div>
+      </div>
       <div class="borders">
         <b>Border Countries:</b>
         <ul>
-          <li v-for="border in borders" :key="border"><button>{{ border }}</button></li>
+          <li v-for="border in borders" :key="border">
+            <button>{{ border }}</button>
+          </li>
         </ul>
       </div>
-   
-  </div>
+    </div>
   </div>
 </template>
 
@@ -55,7 +68,7 @@ props: ["name"],
 created() {
 axios({
   method: "get",
-  url: "https://restcountries.eu/rest/v2/name/" + this.name,
+  url: "https://restcountries.com/v2/name/" + this.name,
 })
   .then((response) => {
     this.item = response.data.[0];
@@ -70,15 +83,14 @@ axios({
 .container {
   display: flex;
   text-align: left;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
   margin: 20px;
-
 }
 
- p {
-    line-height: 1.8rem;
-  }
+p {
+  line-height: 1.8rem;
+}
 
 .img {
   width: 500px;
@@ -121,10 +133,9 @@ axios({
 }
 
 ul {
-    display: inline-flex;
-    list-style: none;
-  }
-
+  display: inline-flex;
+  list-style: none;
+}
 
 .countryname {
   font-size: 1.5rem;
